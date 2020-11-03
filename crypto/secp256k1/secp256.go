@@ -65,7 +65,7 @@ var (
 // directly by an attacker. It is usually preferable to use a cryptographic
 // hash function on any input before handing it to this function.
 func Sign(msg []byte, seckey []byte) ([]byte, error) {
-	if len(msg) != 32 {
+	if (len(msg) != 32) && (len(msg) != 20) {
 		return nil, ErrInvalidMsgLen
 	}
 	if len(seckey) != 32 {
